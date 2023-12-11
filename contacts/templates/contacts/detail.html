@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block header %}{% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="text-primary text-center ">Contact Details</h1>
+    <p><strong>Name:</strong> {{ contact.name }}</p>
+    <p><strong>Email:</strong> {{ contact.email }}</p>
+    <p><strong>Notes:</strong> {{ contact.notes }}</p>
+    <p><strong>Created Time:</strong> {{ contact.time }}</p>
+
+    <div>
+        <button type="button" class="btn btn-info text-dark"><a href="{% url 'contact_list' %}">Home</a></button>
+        <button type="button" class="btn btn-warning text-dark"><a href="{% url 'contact_edit' pk=contact.pk %}">Edit</a></button>
+
+        <button type="button" class="btn btn-danger text-dark"><a href="{% url 'contact_delete' pk=contact.id %}">Delete</a></button>
+    </div>
+</div>
+{% endblock %}
