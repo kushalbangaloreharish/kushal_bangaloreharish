@@ -9,10 +9,9 @@
     <p><strong>Created Time:</strong> {{ contact.time }}</p>
 
     <div>
-        <button type="button" class="btn btn-info text-dark"><a href="{% url 'contact_list' %}">Home</a></button>
-        <button type="button" class="btn btn-warning text-dark"><a href="{% url 'contact_edit' pk=contact.pk %}">Edit</a></button>
-
-        <button type="button" class="btn btn-danger text-dark"><a href="{% url 'contact_delete' pk=contact.id %}">Delete</a></button>
+        <button type="button" class="btn btn-info text-dark"  onclick="location.href='{% url 'contact_list' %}'">Home</button>
+        <button type="button" class="btn btn-success text-dark" onclick="location.href = '{% url 'contact_edit' pk=contact.pk %} '">Edit</button>
+        <button type="button" class="btn btn-danger text-dark" onclick="location.href='{% url 'contact_delete' pk=contact.id %}'">Delete</button>
     </div>
 </div>
 {% endblock %}

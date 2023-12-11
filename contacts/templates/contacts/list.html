@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="container">
-    <a href="{% url 'contact_create' %}" class="button-like">Create a New Contact</a>
-    <table class="table table-striped" style="margin-top: 20px;">
+    <a href="{% url 'contact_create' %}" class="btn btn-primary text-light">Create a New Contact</a>
+    <table class="table table-hover" style="margin-top: 20px;">
         <thead>
             <tr>
                 <th>Contact Name</th>
@@ -15,12 +15,16 @@
             {% for contact in contacts %}
             <tr>
                 <td>
-                    <a href="{% url 'contact_detail' contact.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="{% url 'contact_delete' contact.id %}"><span class="glyphicon glyphicon-trash" style="padding-inline: 5px;"></span></a>
-                    <a href="{% url 'contact_detail' contact.id %}">{{ contact.name }}</a>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <a href="{% url 'contact_detail' contact.id %}">{{ contact.name }}</a>
+                        <div>
+                        <a href="{% url 'contact_detail' contact.id %}"><span class="glyphicon glyphicon-pencil" style=" padding-inline: 3px; color: green;"></span></a>
+                        <a href="{% url 'contact_delete' contact.id %}"><span class="glyphicon glyphicon-trash" style="color: red;"></span></a>
+                         </div>
+                    </div>
                 </td>
                 <td style="padding-left: 50px;text-align: left;">{{ contact.email }}</td>
-                <td style="padding-left: 50px;text-align: left;">{{ contact.time|date:"M j, Y, P" }}</td>
+                <td style="padding-left: 50px;text-align: left;">{{ contact.time|date:"M j, Y, h:i A" }}</td>
             </tr>
             {% endfor %}
         </tbody>
